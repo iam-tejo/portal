@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saviynt IAM Transformation Presentation</title>
+  <!-- SEO & Premium Styling Inputs -->
+  <meta name="description"
+    content="An interactive web-based presentation deck outlining our organization's Saviynt IGA implementation, lifecycle engines, and SOD security frameworks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Slide Deck Main Scalable Wrapper -->
+  <div id="deck-wrapper">
+    <div id="presentation-viewport">
+      <!-- GLOBAL HEADER BRANDING -->
+      <div class="global-logo-header">
+        <img src="assets/admiral_logo.png" alt="Admiral" class="hdr-logo admiral">
+        <span class="hdr-divider">|</span>
+        <img src="assets/saviynt_logo.png" alt="Saviynt" class="hdr-logo saviynt">
+      </div>
+
+      <div class="glow-sphere purple-glow"></div>
+      <div class="glow-sphere cyan-glow"></div>
+
+      <!-- SLIDES CONTAINER -->
+      <div class="slides-container">
+
+        <!-- SLIDE 1: TITLE SCREEN & Welcome (IGA in Admiral) -->
+        <section class="slide active welcome-mode" id="slide-1">
+          <div class="slide-content grid-2 title-slide-grid">
+            <div class="network-mesh" id="title-mesh"></div>
+
+            <div class="column-left flex-center title-left-side">
+              <div class="title-branding">
+                <img src="assets/admiral_logo.png" alt="Admiral Group" class="title-logo admiral">
+                <span class="branding-plus">+</span>
+                <img src="assets/saviynt_logo.png" alt="Saviynt" class="title-logo saviynt">
+              </div>
+              <span class="title-kicker">IAM TRANSFORMATION ROADMAP</span>
+              <h1 class="slide-main-title">IGA in Admiral</h1>
+              <h2 class="slide-subtitle">Modern Identity Governance &amp; Administration</h2>
+              
+              <!-- Meet the Team CTA Button -->
+              <button class="btn btn-primary" id="btn-meet-team" style="margin-top: 10px;">Meet the IGA Team ➔</button>
+
+              <!-- Dynamic Team Role Detail Card -->
+              <div class="glass-panel team-detail-card" id="team-detail-panel">
+                <div class="detail-header">
+                  <div class="detail-avatar-container">
+                    <img src="assets/team_po.png" id="role-detail-photo" class="detail-photo"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <span class="detail-icon" id="role-detail-icon" style="display: none;">👑</span>
+                  </div>
+                  <div>
+                    <h4 id="role-detail-title">Product Owner</h4>
+                    <span id="role-detail-subtitle">App Onboarding Lead (1 Member)</span>
+                  </div>
+                </div>
+                <p id="role-detail-desc">Establishes onboarding priority, aligns business requirements, and directs
+                  delivery pipelines.</p>
+              </div>
+            </div>
+
+            <div class="column-right flex-center title-right-side">
+              <div class="team-mosaic-container">
+                <!-- Center Product Owner (PO) -> Starts in Center (Slot 0) -->
+                <div class="team-mosaic-card PO large-center" data-role="PO" data-id="po"
+                  style="--row: 2; --col: 2; --rspan: 2; --cspan: 1;">
+                  <div class="mosaic-avatar-container">
+                    <img src="assets/team_po.png" class="mosaic-photo"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <span class="mosaic-avatar fallback-avatar" style="display: none;">👑</span>
+                  </div>
+                  <div class="mosaic-info">
+                    <strong>Product Owner</strong>
+                    <span>1 Member</span>
+                  </div>
+                </div>
+
+                <!-- Developers -> Starts in Slot 1 (spans 2 rows) -->
+                <div class="team-mosaic-card DEV" data-role="DEV" data-id="dev"
+                  style="--row: 1; --col: 1; --rspan: 2; --cspan: 1;">
+                  <div class="mosaic-avatar-container">
+                    <img src="assets/team_dev.png" class="mosaic-photo"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <span class="mosaic-avatar fallback-avatar" style="display: none;">💻</span>
+                  </div>
+                  <div class="mosaic-info">
+                    <strong>Developers</strong>
+                    <span>4 Members</span>
+                  </div>
+                </div>
+
+                <!-- Business Analysts -> Starts in Slot 2 (spans 2 rows) -->
+                <div class="team-mosaic-card BA" data-role="BA" data-id="ba"
+                  style="--row: 1; --col: 3; --rspan: 2; --cspan: 1;">
+                  <div class="mosaic-avatar-container">
+                    <img src="assets/team_ba.png" class="mosaic-photo"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <span class="mosaic-avatar fallback-avatar" style="display: none;">📊</span>
+                  </div>
+                  <div class="mosaic-info">
+                    <strong>Business Analysts</strong>
+                    <span>3 Members</span>
+                  </div>
+                </div>
+
+                <!-- Scrum Master -> Starts in Slot 3 (single cell) -->
+                <div class="team-mosaic-card SM" data-role="SM" data-id="sm"
+                  style="--row: 1; --col: 2; --rspan: 1; --cspan: 1;">
+                  <div class="mosaic-avatar-container">
+                    <img src="assets/team_sm.png" class="mosaic-photo"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <span class="mosaic-avatar fallback-avatar" style="display: none;">🔄</span>
+                  </div>
+                  <div class="mosaic-info">
+                    <strong>Scrum Master</strong>
+                    <span>1 Member</span>
+                  </div>
+                </div>
+
+                <!-- Project Manager -> Starts in Slot 4 (single cell) -->
+                <div class="team-mosaic-card PM" data-role="PM" data-id="pm"
+                  style="--row: 3; --col: 1; --rspan: 1; --cspan: 1;">
+                  <div class="mosaic-avatar-container">
+                    <img src="assets/team_pm.png" class="mosaic-photo"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <span class="mosaic-avatar fallback-avatar" style="display: none;">💼</span>
+                  </div>
+                  <div class="mosaic-info">
+                    <strong>Project Manager</strong>
+                    <span>1 Member</span>
+                  </div>
+                </div>
+
+                <!-- Testers -> Starts in Slot 5 (single cell) -->
+                <div class="team-mosaic-card QA" data-role="QA" data-id="qa"
+                  style="--row: 3; --col: 3; --rspan: 1; --cspan: 1;">
+                  <div class="mosaic-avatar-container">
+                    <img src="assets/team_qa.png" class="mosaic-photo"
+                      onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+                    <span class="mosaic-avatar fallback-avatar" style="display: none;">🧪</span>
+                  </div>
+                  <div class="mosaic-info">
+                    <strong>Testers</strong>
+                    <span>3 Members</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="slide-footer-note" style="margin-top: 25px;">Press <kbd>→</kbd> or Space to start slide deck
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 2: SEGREGATED ENVIRONMENTS -->
+        <section class="slide" id="slide-2">
+          <div class="slide-content">
+            <h2 class="slide-header text-center">Environments &amp; Deployment Safety</h2>
+            <p class="slide-intro-text text-center">We enforce complete lifecycle isolation to protect production stability and directory synchronization.</p>
+
+            <div class="env-pipeline" id="env-pipeline-container" style="margin-bottom: 15px; position: relative;">
+              <div class="env-step dev">
+                <div class="env-icon">🛠️</div>
+                <h3>DEV</h3>
+                <p>Sandbox &amp; Config Sandbox</p>
+                <span class="pipeline-connector">➔</span>
+              </div>
+              <div class="env-step pre">
+                <div class="env-icon">📋</div>
+                <h3>PRE</h3>
+                <p>Pre-Prod (4-Eye Operations)</p>
+                <span class="pipeline-connector">➔</span>
+              </div>
+              <div class="env-step prod">
+                <div class="env-icon">🛡️</div>
+                <h3>PROD</h3>
+                <p>Production (Live Governance)</p>
+              </div>
+              
+              <!-- Floating cargo package -->
+              <div id="env-package-cargo" class="env-package-cargo hidden" style="position: absolute; width: 32px; height: 32px; background: var(--color-secondary); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1rem; transform: translate(-50%, -50%); transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1), top 0.8s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s; box-shadow: 0 0 15px var(--color-secondary-glow); z-index: 10; border: 1px solid rgba(255,255,255,0.2); pointer-events: none;">📦</div>
+            </div>
+
+            <!-- Interactive Pipeline Console & Button -->
+            <div style="display: flex; gap: 20px; align-items: center; justify-content: center; margin-bottom: 12px; width: 100%;">
+              <button class="btn btn-primary btn-xs" id="btn-env-simulate" style="padding: 6px 12px; font-size: 0.75rem;">Simulate Release Pipeline 🚀</button>
+              <div class="sim-alert-console" id="env-alert-console" style="margin: 0; padding: 6px 15px; font-size: 0.75rem; flex-grow: 1; max-width: 600px; display: flex; align-items: center; gap: 8px; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.06); background: rgba(255,255,255,0.01);">
+                <span class="status-icon">📝</span>
+                <span class="status-msg">Deployment pipeline idle. Click simulate to trigger package flow.</span>
+              </div>
+            </div>
+
+            <div class="safety-features-grid" style="grid-template-columns: repeat(3, 1fr); gap: 12px;">
+              <div class="feature-card">
+                <span class="card-icon">📦</span>
+                <div>
+                  <h4>Azure DevOps Packages</h4>
+                  <p>Settings are exported as standardized XML/JSON bundles, version-controlled in our remote Azure DevOps repo.</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <span class="card-icon">👥</span>
+                <div>
+                  <h4>Operations Deployments</h4>
+                  <p>Deployments into controlled PRE and PROD environments are executed strictly by our Operations team.</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <span class="card-icon">👀</span>
+                <div>
+                  <h4>Developer 4-Eye Check</h4>
+                  <p>All package deployments to PRE and PROD require peer review and developer 4-eye sign-off before import.</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <span class="card-icon">📅</span>
+                <div>
+                  <h4>2-Week Sprint Releases</h4>
+                  <p>Deployments follow a regular 2-week sprint cycle, aligning scheduled release candidates across our target apps.</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <span class="card-icon">⚡</span>
+                <div>
+                  <h4>Major Ad-Hoc Releases</h4>
+                  <p>On-demand ad-hoc releases are executed for major updates, new application onboarding, or platform features.</p>
+                </div>
+              </div>
+              <div class="feature-card">
+                <span class="card-icon">🏗️</span>
+                <div>
+                  <h4>Terraform Roadmap</h4>
+                  <p>Plans are in place to introduce Terraform to automate deployment workflows into PRE and PROD, easing release overhead.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 3: JOINER PROCESS LIFECYCLE -->
+        <section class="slide" id="slide-3">
+          <div class="slide-content grid-2">
+            <div class="column-left">
+              <h2 class="slide-header">Our Joiner Process Workflow</h2>
+              <p class="slide-intro-text">Automating day-one readiness driven directly by our HR source authority with
+                integrated licensing guardrails.</p>
+
+              <div class="joiner-rules-card">
+                <div class="rule-bullet">
+                  <strong>Source Authority:</strong> Daily flat-file feed from **iTrent HR System** ingested via Flat
+                  File Connector.
+                </div>
+                <div class="rule-bullet">
+                  <strong>Attribute-Based Provisioning:</strong> Accounts and permissions mapped automatically based on
+                  Department, Position, Location, and Employee Type.
+                </div>
+                <div class="rule-bullet">
+                  <strong>Licensing Optimization:</strong> Accounts are not provisioned until **T-minus 7 days** from
+                  start, cutting redundant M365 licensing overhead.
+                </div>
+                <div class="rule-bullet">
+                  <strong>ServiceNow Task Automation:</strong> Pre-triggers ServiceNow requests for hardware procurement
+                  (laptops, badges) ahead of start date.
+                </div>
+              </div>
+            </div>
+
+            <!-- INTERACTIVE JOINER SIMULATOR -->
+            <div class="column-right flex-center">
+              <div class="glass-panel simulator-card" id="joiner-simulator">
+                <h3>🔄 Interactive Joiner Lifecycle</h3>
+                <p class="sim-instruction">Click "Simulate New Joiner" to watch the flow execute.</p>
+
+                <div class="joiner-sim-stage">
+                  <div class="sim-timeline-visual">
+                    <div class="timeline-point" id="tp-1">iTrent Sync</div>
+                    <div class="timeline-point" id="tp-2">T-7 Provision</div>
+                    <div class="timeline-point" id="tp-3">T-0 Confirm</div>
+                  </div>
+
+                  <div class="joiner-profile-card hidden" id="joiner-profile">
+                    <div class="card-avatar">👤</div>
+                    <div class="card-details">
+                      <strong id="joiner-name-val">Alex Rivera</strong>
+                      <span id="joiner-details-val">Dept: 102 | Pos: Engineer | Loc: UK</span>
+                    </div>
+                    <span class="card-status badge warning" id="joiner-status-badge">Imported</span>
+                  </div>
+
+                  <div class="joiner-actions-grid hidden" id="joiner-sys-provisioned">
+                    <div class="sys-provision-badge" id="prov-ad">
+                      <img src="assets/ad_logo.png" alt="Active Directory" class="badge-logo">
+                      <span>AD Account</span>
+                    </div>
+                    <div class="sys-provision-badge" id="prov-entra">
+                      <img src="assets/entra_logo.png" alt="Microsoft Entra" class="badge-logo">
+                      <span>Entra ID</span>
+                    </div>
+                    <div class="sys-provision-badge" id="prov-snow">
+                      <img src="assets/snow_icon.png" alt="ServiceNow" class="badge-logo">
+                      <span>SNOW Tasks</span>
+                    </div>
+                    <div class="sys-provision-badge" id="prov-m365">
+                      <span class="badge-logo-emoji">⏳</span>
+                      <span>M365 Gated</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sim-alert-console" id="joiner-alert-console">
+                  <span class="status-icon">📡</span>
+                  <span class="status-msg">HR Source Database Idle.</span>
+                </div>
+                <div class="joiner-controls-row">
+                  <button class="btn btn-secondary btn-sm" id="btn-joiner-simulate">Simulate New Joiner 🚀</button>
+                  <button class="btn btn-danger btn-sm hidden" id="btn-joiner-nonstarter">Non-Starter Trigger
+                    🚨</button>
+                  <button class="btn btn-primary btn-sm hidden" id="btn-joiner-confirm">Confirm Day-0 Start 👤</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 4: MOVER PROCESS LIFECYCLE -->
+        <section class="slide" id="slide-4">
+          <div class="slide-content grid-2">
+            <div class="column-left">
+              <h2 class="slide-header">Our Mover Process (Phased)</h2>
+              <p class="slide-intro-text">Governing job transitions through role swaps, manager reviews, and operational
+                task alignment.</p>
+
+              <div class="mover-rules-card">
+                <div class="rule-bullet">
+                  <strong>Phase 1: Birthright Swap (Complete)</strong><br>
+                  Provisions new roles automatically. To prevent lockouts, old role removal requires Operations Team
+                  approval.
+                </div>
+                <div class="rule-bullet">
+                  <strong>Phase 2: Manager UAR (Complete)</strong><br>
+                  Triggers an automated review campaign for the new line manager to check and clean up ad-hoc access
+                  from the previous department.
+                </div>
+                <div class="rule-bullet">
+                  <strong>Phase 3: Disconnected Apps (In Progress)</strong><br>
+                  Moving disconnected app tickets from ServiceNow into Saviynt-native audited manual tasks.
+                  Decommissioning the ServiceNow role change form.
+                </div>
+              </div>
+            </div>
+
+            <!-- INTERACTIVE MOVER SIMULATOR -->
+            <div class="column-right flex-center">
+              <div class="glass-panel simulator-card" id="mover-simulator">
+                <h3>🔄 Interactive Mover Simulator</h3>
+                <p class="sim-instruction">Trigger a role swap to simulate a department transfer.</p>
+
+                <div class="mover-sim-stage">
+                  <div class="mover-transfer-flow">
+                    <div class="dept-badge old" id="mover-dept-old">Engineering 🛠️</div>
+                    <div class="flow-connector">➔</div>
+                    <div class="dept-badge new" id="mover-dept-new">Finance 📈</div>
+                  </div>
+
+                  <div class="mover-roles-grid">
+                    <div class="mover-role-card" id="mover-role-new">Finance Birthright: Pending ⏳</div>
+                    <div class="mover-role-card" id="mover-role-old">Engineering Birthright: Active ✅</div>
+                    <div class="mover-role-card" id="mover-role-adhoc">Ad-hoc Git Access: Pre-Existing ✅</div>
+                  </div>
+                </div>
+
+                <div class="sim-alert-console" id="mover-alert-console">
+                  <span class="status-icon">🏢</span>
+                  <span class="status-msg">User Alex Rivera currently in Engineering.</span>
+                </div>
+
+                <div class="mover-controls-row">
+                  <button class="btn btn-secondary btn-sm" id="btn-mover-simulate">Trigger Department Transfer
+                    🚀</button>
+                  <button class="btn btn-primary btn-sm hidden" id="btn-mover-ops-approve">Approve Old Role Removal
+                    ✅</button>
+                  <button class="btn btn-secondary btn-sm hidden" id="btn-mover-mgr-audit">New Manager Audit 👤</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 5: LEAVER PROCESS LIFECYCLE -->
+        <section class="slide" id="slide-5">
+          <div class="slide-content grid-2">
+            <div class="column-left">
+              <h2 class="slide-header">Our Leaver Process (Automated &amp; Ad-hoc)</h2>
+              <p class="slide-intro-text">Securing access revocation through automated offboarding and emergency
+                immediate suspensions.</p>
+
+              <div class="leaver-rules-card">
+                <div class="rule-bullet">
+                  <strong>Standard Leaver: End Date Timeline</strong><br>
+                  Daily HR feed (iTrent) triggers end date. AD <code>accountExpires</code> blocks login at midnight T-0.
+                  On T+1, Saviynt disables accounts and moves them to <strong>Leavers OU</strong>. On T+30, accounts are
+                  permanently deleted.
+                </div>
+                <div class="rule-bullet">
+                  <strong>AD accountExpires Fail-Safe</strong><br>
+                  By pre-setting AD <code>accountExpires</code> on start, lockouts occur on the end date even if Saviynt
+                  is down or unreachable.
+                </div>
+                <div class="rule-bullet">
+                  <strong>Emergency Immediate Suspension</strong><br>
+                  High-privileged admins/managers can suspend accounts instantly, killing active Entra sessions and
+                  moving AD accounts to the <strong>Suspended OU</strong>.
+                </div>
+              </div>
+            </div>
+
+            <!-- INTERACTIVE LEAVER SIMULATOR -->
+            <div class="column-right flex-center">
+              <div class="glass-panel simulator-card" id="leaver-simulator">
+                <h3>🚨 Interactive Leaver Simulator</h3>
+                <p class="sim-instruction">Simulate standard end-date offboarding steps or trigger an immediate
+                  suspension.</p>
+
+                <div class="leaver-sim-stage">
+                  <!-- USER STATE CARD -->
+                  <div class="leaver-profile-card" id="leaver-profile">
+                    <span class="card-avatar">👤</span>
+                    <div class="card-details">
+                      <strong>Alex Rivera</strong>
+                      <span>Dept: Engineering | Status: <span class="badge" id="leaver-status-badge"
+                          style="background: rgba(57, 231, 95, 0.15); color: var(--color-success);">Active</span></span>
+                    </div>
+                  </div>
+
+                  <!-- ACTION BADGES GRID -->
+                  <div class="leaver-actions-grid" id="leaver-sys-provisioned">
+                    <div class="sys-provision-badge provisioned" id="leaver-ad">
+                      <img src="assets/ad_logo.png" alt="Active Directory" class="badge-logo">
+                      <span>AD Account</span><br>
+                      <span style="font-size:0.6rem; opacity:0.75; font-weight:normal;" id="leaver-ad-ou">(OU:
+                        Active)</span>
+                    </div>
+                    <div class="sys-provision-badge provisioned" id="leaver-entra">
+                      <img src="assets/entra_logo.png" alt="Microsoft Entra" class="badge-logo">
+                      <span>Entra ID (Active Sessions)</span>
+                    </div>
+                    <div class="sys-provision-badge provisioned" id="leaver-apps">
+                      <img src="assets/workiva_logo.png" alt="Workiva" class="badge-logo">
+                      <span>Workiva Account</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sim-alert-console" id="leaver-alert-console">
+                  <span class="status-icon">🛡️</span>
+                  <span class="status-msg">Alex Rivera has active accounts and open sessions.</span>
+                </div>
+
+                <div class="leaver-controls-row" style="margin-top: 12px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+                  <button class="btn btn-secondary btn-sm" id="btn-leaver-standard">Simulate Standard T+1 (Disable &amp; Move OU) 📅</button>
+                  <button class="btn btn-primary btn-sm hidden" id="btn-leaver-t30">Simulate Standard T+30 (Delete Accounts) 🗑️</button>
+                  <button class="btn btn-danger btn-sm" id="btn-leaver-suspend">Immediate Emergency Suspension 🚨</button>
+                  <button class="btn btn-primary btn-sm hidden" id="btn-leaver-restore">Emergency Restoration 🔄</button>
+                  <button class="btn btn-secondary btn-sm hidden" id="btn-leaver-reset">Reset Simulator 🔄</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 6: APP ONBOARDING & CONNECTORS -->
+        <section class="slide" id="slide-6">
+          <div class="slide-content grid-2">
+            <div class="column-left" style="justify-content: flex-start; padding-top: 10px;">
+              <h2 class="slide-header" style="margin-bottom: 5px;">Streamlined App Onboarding</h2>
+              <p class="slide-intro-text" style="margin-bottom: 15px;">Standardizing connectivity lowers security risks
+                and speeds up integration timelines.</p>
+
+              <!-- Onboarded Ecosystem Compact Grid -->
+              <div class="glass-panel app-grid-showcase"
+                style="width: 100%; box-sizing: border-box; padding: 18px 20px;">
+                <h3
+                  style="font-size: 1.05rem; margin-bottom: 12px; font-weight: bold; color: var(--color-text-light); text-align: center;">
+                  Our Onboarded Ecosystem</h3>
+                <div class="app-logos-grid" style="margin-bottom: 0;">
+                  <div class="app-logo-card">
+                    <img src="assets/ad_logo.png" alt="Active Directory" class="app-logo-icon">
+                    <span>Active Directory</span>
+                  </div>
+                  <div class="app-logo-card">
+                    <img src="assets/entra_logo.png" alt="Microsoft Entra" class="app-logo-icon">
+                    <span>Microsoft Entra</span>
+                  </div>
+                  <div class="app-logo-card">
+                    <img src="assets/snow_logo.png" alt="ServiceNow" class="app-logo-icon">
+                    <span>ServiceNow</span>
+                  </div>
+                  <div class="app-logo-card">
+                    <img src="assets/cyberark_logo.png" alt="CyberArk" class="app-logo-icon">
+                    <span>CyberArk</span>
+                  </div>
+                  <div class="app-logo-card">
+                    <img src="assets/itrent_logo.png" alt="iTrent" class="app-logo-icon">
+                    <span>iTrent</span>
+                  </div>
+                  <div class="app-logo-card">
+                    <img src="assets/gcp_logo.png" alt="Google Cloud" class="app-logo-icon">
+                    <span>Google Cloud</span>
+                  </div>
+                  <div class="app-logo-card">
+                    <img src="assets/corelogic_logo.png" alt="CoreLogic" class="app-logo-icon">
+                    <span>CoreLogic</span>
+                  </div>
+                  <div class="app-logo-card">
+                    <img src="assets/adobe_logo.png" alt="Adobe" class="app-logo-icon">
+                    <span>Adobe</span>
+                  </div>
+                  <div class="app-logo-card">
+                    <img src="assets/workiva_logo.png" alt="Workiva" class="app-logo-icon">
+                    <span>Workiva</span>
+                  </div>
+                  <div class="app-logo-card">
+                    <img src="assets/genesys_logo.png" alt="Genesys" class="app-logo-icon">
+                    <span>Genesys</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="column-right flex-center">
+              <div class="glass-panel onboarding-metrics-dashboard">
+                <h3>Onboarding &amp; Governance Metrics</h3>
+                <p class="metrics-subtext">Live operations metrics tracked across our Saviynt IGA landscape.</p>
+
+                <div class="metrics-grid">
+                  <div class="metric-widget card-glow-blue">
+                    <span class="metric-title">Apps Onboarded</span>
+                    <span class="metric-number count-up" data-target="10" data-suffix=" Core Systems">0</span>
+                    <span class="metric-trend">✔ Standardized APIs</span>
+                  </div>
+                  <div class="metric-widget card-glow-green">
+                    <span class="metric-title">Requests &amp; Approvals</span>
+                    <span class="metric-number count-up" data-target="5000" data-suffix="+ Completed">0</span>
+                    <span class="metric-trend">98.7% Success Rate</span>
+                  </div>
+                  <div class="metric-widget card-glow-gold">
+                    <span class="metric-title">Toxic SOD Blocks</span>
+                    <span class="metric-number count-up" data-target="128" data-suffix=" Prevented">0</span>
+                    <span class="metric-trend">🛡️ Real-Time Scans</span>
+                  </div>
+                  <div class="metric-widget card-glow-red">
+                    <span class="metric-title">Out-of-Band Access</span>
+                    <span class="metric-number count-up" data-target="42" data-suffix=" Detected">0</span>
+                    <span class="metric-trend">⚡ Immediate Actions</span>
+                  </div>
+                  <div class="metric-widget card-glow-purple">
+                    <span class="metric-title">Recertification campaigns</span>
+                    <span class="metric-number count-up" data-target="4" data-suffix=" Cycles Complete">0</span>
+                    <span class="metric-trend">🔑 UAR Audit Compliant</span>
+                  </div>
+                  <div class="metric-widget card-glow-pink">
+                    <span class="metric-title">Disconnected Apps</span>
+                    <span class="metric-number count-up" data-target="15" data-suffix="+ Apps">0</span>
+                    <span class="metric-trend">📋 Saviynt Tasks</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 7: SNOW / ARS REQUESTS -->
+        <section class="slide" id="slide-7">
+          <div class="slide-content grid-2">
+            <div class="column-left" style="justify-content: flex-start; padding-top: 10px; gap: 15px;">
+              <h2 class="slide-header">ServiceNow vs. Saviynt ARS</h2>
+              <p class="slide-intro-text" style="margin-bottom: 12px;">Comparing our current ServiceNow front-door request model with native Saviynt ARS capabilities.</p>
+
+              <!-- SN -> Saviynt -> Target System Flow Row -->
+              <div class="visual-flow-row" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-md); margin-bottom: 2px;">
+                <div class="flow-step-box" style="text-align: center; flex: 1;">
+                  <div class="flow-icon-wrap" style="font-size: 1.3rem; margin-bottom: 3px;">📋</div>
+                  <strong style="font-size: 0.8rem; display: block; color: var(--color-secondary);">ServiceNow</strong>
+                  <span style="font-size: 0.65rem; color: var(--color-text-dim);">Request Front-Door</span>
+                </div>
+                <div class="flow-arrow" style="font-size: 1.1rem; color: rgba(255,255,255,0.15); margin: 0 8px;">➔</div>
+                <div class="flow-step-box" style="text-align: center; flex: 1;">
+                  <div class="flow-icon-wrap" style="font-size: 1.3rem; margin-bottom: 3px;">⚙️</div>
+                  <strong style="font-size: 0.8rem; display: block; color: var(--color-primary);">Saviynt</strong>
+                  <span style="font-size: 0.65rem; color: var(--color-text-dim);">Approval &amp; SOD check</span>
+                </div>
+                <div class="flow-arrow" style="font-size: 1.1rem; color: rgba(255,255,255,0.15); margin: 0 8px;">➔</div>
+                <div class="flow-step-box" style="text-align: center; flex: 1;">
+                  <div class="flow-icon-wrap" style="font-size: 1.3rem; margin-bottom: 3px;">💻</div>
+                  <strong style="font-size: 0.8rem; display: block; color: var(--color-success);">Target Apps</strong>
+                  <span style="font-size: 0.65rem; color: var(--color-text-dim);">Active Provisioning</span>
+                </div>
+              </div>
+
+              <!-- Limitations Panel -->
+              <div class="glass-panel" style="padding: 10px 14px; border-radius: var(--radius-md); background: rgba(255, 62, 62, 0.02); border: 1px solid rgba(255, 62, 62, 0.12); font-size: 0.74rem;">
+                <h4 style="color: var(--color-danger); font-size: 0.85rem; margin-bottom: 5px; font-weight: bold; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">⚠️ Limitations of this Flow</h4>
+                <ul style="margin-left: 15px; color: var(--color-text-dim); line-height: 1.4; display: flex; flex-direction: column; gap: 3px;">
+                  <li><strong>Detective, Not Preventative:</strong> ServiceNow lacks application database visibility to audit toxic access combinations before request submission.</li>
+                  <li><strong>Late-Stage Discovery:</strong> SOD violations are flagged only after they reach Saviynt approvals, delaying reviews and creating administrative overhead.</li>
+                </ul>
+              </div>
+
+              <!-- Why Saviynt ARS is Better Panel -->
+              <div class="glass-panel" style="padding: 10px 14px; border-radius: var(--radius-md); background: rgba(0, 240, 255, 0.02); border: 1px solid rgba(0, 240, 255, 0.15); font-size: 0.74rem;">
+                <h4 style="color: var(--color-secondary); font-size: 0.85rem; margin-bottom: 5px; font-weight: bold; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">💡 Why Saviynt ARS is Better</h4>
+                <p style="color: var(--color-text-dim); line-height: 1.4;">
+                  Using <strong>Saviynt ARS as the front door</strong> lets the system block toxic combinations <strong>during the request stage itself</strong>. It warns the requester and blocks invalid submissions instantly, keeping target systems clean out-of-the-box.
+                </p>
+              </div>
+            </div>
+
+            <div class="column-right flex-center">
+              <div class="glass-panel simulator-card" id="request-simulator">
+                <h3>📋 SNOW &amp; Saviynt Request Simulator</h3>
+                <p class="sim-instruction">Select an application to request via ServiceNow form.</p>
+                
+                <div class="sim-selector-row" style="margin-bottom: 12px; display: flex; gap: 10px; justify-content: center;">
+                  <button class="btn btn-secondary btn-xs app-req-btn active" data-app="adobe">Adobe CC (Low Risk)</button>
+                  <button class="btn btn-secondary btn-xs app-req-btn" data-app="ad-admin">AD Admin (High Risk - SOD)</button>
+                </div>
+
+                <div class="req-sim-stage">
+                  <!-- Flow Steps Visualization -->
+                  <div class="sim-timeline-visual" style="margin-top: 10px; margin-bottom: 15px;">
+                    <div class="timeline-point" id="rtp-1">SNOW Form</div>
+                    <div class="timeline-point" id="rtp-2">Saviynt Workflow</div>
+                    <div class="timeline-point" id="rtp-3">Provisioned</div>
+                  </div>
+
+                  <!-- Workflow status console -->
+                  <div class="sim-alert-console" id="req-alert-console" style="margin-top: 15px;">
+                    <span class="status-icon">📝</span>
+                    <span class="status-msg">ServiceNow Request Portal idle. Select an app above.</span>
+                  </div>
+
+                  <!-- Approver Decision Panel -->
+                  <div class="approver-action-box hidden" id="approver-actions" style="margin-top: 12px; padding: 12px; border-radius: var(--radius-md); background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); text-align: left;">
+                    <h5 style="font-size: 0.8rem; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-gold);" id="approver-title">Approver Panel</h5>
+                    <p style="font-size: 0.75rem; margin-bottom: 8px; color: var(--color-text-dim);" id="approver-prompt">Review request details.</p>
+                    
+                    <!-- Mitigation Control & Duration Selector (Only for AD Admin SOD) -->
+                    <div class="sod-mitigation-controls hidden" id="approver-sod-controls" style="margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
+                      <div class="mitigation-warning" id="sod-mitigation-box" style="padding: 8px; font-size: 0.7rem; border-radius: var(--radius-sm); border: 1px solid rgba(255, 62, 62, 0.2); background: rgba(255, 62, 62, 0.05); color: var(--color-danger); line-height: 1.4;">
+                        <strong>⚠️ SOD Conflict:</strong> User has 'Approve Payments'. A mitigation control must be selected.
+                      </div>
+                      
+                      <div class="sod-controls-grid" style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 8px;">
+                        <div class="control-select-group" style="display: flex; flex-direction: column; gap: 4px;">
+                          <label style="font-size: 0.65rem; font-weight: bold; text-transform: uppercase; color: var(--color-text-dim);">Mitigation Control:</label>
+                          <select id="sel-mitigation-control" style="background: rgba(5,2,10,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); padding: 4px; font-size: 0.7rem; color: #fff; outline: none; cursor: pointer; width: 100%;">
+                            <option value="Monthly Transaction Audit">Monthly Transaction Audit Review</option>
+                            <option value="Restricted Read-Only Safeguard">Restricted Read-Only Access Safeguard</option>
+                            <option value="Peer Supervisor Control">Peer Supervisor Authorization Control</option>
+                          </select>
+                        </div>
+
+                        <div class="control-select-group" style="display: flex; flex-direction: column; gap: 4px;">
+                          <label style="font-size: 0.65rem; font-weight: bold; text-transform: uppercase; color: var(--color-text-dim);">Waiver Period:</label>
+                          <select id="sel-mitigation-duration" style="background: rgba(5,2,10,0.8); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); padding: 4px; font-size: 0.7rem; color: #fff; outline: none; cursor: pointer; width: 100%;">
+                            <option value="30 Days">30 Days (Temporary)</option>
+                            <option value="90 Days">90 Days (Quarterly)</option>
+                            <option value="180 Days">180 Days (Semi-Annual)</option>
+                            <option value="1 Year">1 Year (Annual)</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div style="display: flex; gap: 8px; justify-content: center;">
+                      <button class="btn btn-success btn-xs" id="btn-req-approve">Approve Access ✅</button>
+                      <button class="btn btn-danger btn-xs" id="btn-req-reject">Reject Request ❌</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="req-controls-row" style="margin-top: 12px; display: flex; justify-content: center; gap: 10px;">
+                  <button class="btn btn-primary btn-sm" id="btn-req-submit">Submit Request in ServiceNow 🚀</button>
+                  <button class="btn btn-secondary btn-sm hidden" id="btn-req-reset">Reset Flow 🔄</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 8: Segregation of Duties (SOD) -->
+        <section class="slide" id="slide-8">
+          <div class="slide-content grid-2">
+            <div class="column-left">
+              <h2 class="slide-header">Segregation of Duties (SOD)</h2>
+              <p class="slide-intro-text">By retaining ServiceNow as our request front-door, we lose real-time preventative blocking at the request stage, shifting SOD checks and manual mitigations into the Saviynt approval workflow.</p>
+
+              <div class="sod-explanation-card">
+                <h4>ServiceNow Front-Door Limitation</h4>
+                <p>Because requests originate in ServiceNow, they bypass Saviynt ARS's native front-door checks. We lose the ability to block toxic requests in real time <strong>during the request stage itself</strong> before submission.</p>
+                <h4 style="margin-top: 10px;">Shift to Approver Mitigation</h4>
+                <p>Since violations cannot be blocked at the front door, they must be resolved during the Saviynt approval workflow. Approvers are forced to manually review risk warnings and select appropriate mitigation controls.</p>
+              </div>
+            </div>
+
+            <!-- INTERACTIVE SIMULATOR AREA -->
+            <div class="column-right flex-center">
+              <div class="glass-panel simulator-card" id="sod-simulator">
+                <h3>🧪 Interactive SOD Sandbox</h3>
+                <p class="sim-instruction">Drag roles into the ServiceNow Basket to submit your request.</p>
+
+                <div class="sim-sandbox-split">
+                  <div class="draggable-roles-pool">
+                    <h4>Available Roles</h4>
+                    <div class="drag-role-item" draggable="true" data-role="vendor-create">Create Vendor Profile 📄
+                    </div>
+                    <div class="drag-role-item" draggable="true" data-role="payment-approve">Approve Payments 💸</div>
+                    <div class="drag-role-item" draggable="true" data-role="view-reports">View Audit Reports 📊</div>
+                  </div>
+
+                  <div class="drop-request-basket" id="sod-basket">
+                    <h4>ServiceNow Basket</h4>
+                    <div class="basket-empty-placeholder">Drop roles here...</div>
+                  </div>
+                </div>
+
+                <div class="sim-alert-console" id="sod-alert-console">
+                  <span class="status-icon">✅</span>
+                  <span class="status-msg">Access Basket Clear. Select roles to audit.</span>
+                </div>
+
+                <button class="btn btn-secondary btn-xs reset-sim-btn" id="btn-reset-sod">Reset Simulator</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 9: OUT-OF-BAND ACCESS REMEDIATION -->
+        <section class="slide" id="slide-9">
+          <div class="slide-content grid-2">
+            <div class="column-left">
+              <h2 class="slide-header">Out-of-Band (OOB) Access Control</h2>
+              <p class="slide-intro-text">Out-of-Band access occurs when administrators bypass governance portals and
+                assign privileges directly in target systems.</p>
+
+              <div class="remediation-steps">
+                <div class="step-card">
+                  <h4>Step 1: Scan &amp; Reconcile</h4>
+                  <p>Regular delta scans query directories (e.g., AD, ServiceNow) and compare real configurations
+                    against Saviynt's baseline.</p>
+                </div>
+                <div class="step-card">
+                  <h4>Step 2: Automated Actions</h4>
+                  <p>Saviynt can immediately strip access or trigger retroactive approvals to bring access back into
+                    compliance.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- INTERACTIVE OOB SIMULATOR -->
+            <div class="column-right flex-center">
+              <div class="glass-panel simulator-card" id="oob-simulator">
+                <h3>🖥️ Out-of-Band Remediation</h3>
+                <p class="sim-instruction">Click "Scan Directories" to audit target databases for rogue access.</p>
+
+                <div class="oob-grid-header">
+                  <span>System</span>
+                  <span>Account</span>
+                  <span>Role</span>
+                  <span>Audit Status</span>
+                </div>
+
+                <div class="oob-logs-container" id="oob-logs">
+                  <div class="oob-log-row placeholder">
+                    <td colspan="4">Click Scan below to begin audit...</td>
+                  </div>
+                </div>
+
+                <div class="oob-actions-controls hidden" id="oob-controls">
+                  <button class="btn btn-danger btn-xs" id="btn-oob-strip">Strip Rogue Access ⚡</button>
+                  <button class="btn btn-primary btn-xs" id="btn-oob-retro">Retroactive Ticket 📝</button>
+                </div>
+
+                <div class="sim-control-footer">
+                  <button class="btn btn-secondary btn-sm" id="btn-oob-scan">Scan Directories 🔍</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 10: Campaign Bucket Templates -->
+        <section class="slide" id="slide-10">
+          <div class="slide-content grid-2">
+            <div class="column-left" style="justify-content: flex-start; padding-top: 10px; gap: 12px;">
+              <h2 class="slide-header">Campaign Bucket Templates</h2>
+              <p class="slide-intro-text" style="margin-bottom: 8px;">We classify applications into standardized campaign templates using acronyms to automate reviews based on risk, schedule, and ownership.</p>
+
+              <!-- Acronym Decoder Grid -->
+              <div class="glass-panel" style="padding: 10px 14px; border-radius: var(--radius-md); font-size: 0.74rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); margin-bottom: 2px;">
+                <h4 style="color: var(--color-secondary); font-size: 0.85rem; margin-bottom: 6px; font-weight: bold; text-transform: uppercase;">🏷️ Acronym Naming Convention</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: left; line-height: 1.35;">
+                  <div>
+                    <strong style="color: var(--color-gold);">1. Type:</strong><br>
+                    <span><strong>S</strong> = Standard</span><br>
+                    <span><strong>P</strong> = Privileged</span>
+                  </div>
+                  <div>
+                    <strong style="color: var(--color-gold);">2. Cycle:</strong><br>
+                    <span><strong>Q</strong> = Quarterly</span><br>
+                    <span><strong>BA</strong> = Bi-Annual</span><br>
+                    <span><strong>A</strong> = Annual</span>
+                  </div>
+                  <div>
+                    <strong style="color: var(--color-gold);">3. Owner:</strong><br>
+                    <span><strong>LM</strong> = Line Mgr</span><br>
+                    <span><strong>EO</strong> = Ent. Owner</span><br>
+                    <span><strong>AO</strong> = App Owner</span>
+                  </div>
+                  <div>
+                    <strong style="color: var(--color-gold);">4. Target:</strong><br>
+                    <span><strong>C</strong> = Connected</span><br>
+                    <span><strong>D</strong> = Disconnected</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- UAR Safety & Escalation Rules -->
+              <div class="glass-panel" style="padding: 10px 14px; border-radius: var(--radius-md); background: rgba(138,43,226,0.02); border: 1px solid rgba(138,43,226,0.12); font-size: 0.74rem;">
+                <h4 style="color: var(--color-gold); font-size: 0.85rem; margin-bottom: 5px; font-weight: bold; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">🛡️ Campaign &amp; Escalation Rules</h4>
+                <ul style="margin-left: 15px; color: var(--color-text-dim); line-height: 1.4; display: flex; flex-direction: column; gap: 3px;">
+                  <li><strong>Self-Certification Prevented:</strong> Self-recertifications are blocked and automatically escalate to a <strong>Line Manager (LM)</strong> campaign.</li>
+                  <li><strong>Post-Mover Campaigns:</strong> Transfers immediately trigger a targeted Line Manager campaign to prune legacy access.</li>
+                  <li><strong>Reminder Notifications:</strong> Automated emails are sent periodically to nudge reviewers with outstanding tasks.</li>
+                  <li><strong>Fail-Secure Expiration:</strong> Access is automatically revoked if the campaign expires before a review decision is made.</li>
+                </ul>
+              </div>
+
+              <!-- Interactive Bucket Selectors -->
+              <div class="glass-panel" style="padding: 10px 14px; border-radius: var(--radius-md); background: rgba(0,240,255,0.02); border: 1px solid rgba(0,240,255,0.12); font-size: 0.74rem;">
+                <h4 style="color: var(--color-secondary); font-size: 0.85rem; margin-bottom: 6px; font-weight: bold; text-transform: uppercase;">📂 Select Campaign Bucket to Simulate</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                  <button class="btn btn-secondary btn-xs bucket-btn active" data-bucket="PQLMC" style="padding: 4px 8px; font-size: 0.7rem;">PQLMC</button>
+                  <button class="btn btn-secondary btn-xs bucket-btn" data-bucket="SALMC" style="padding: 4px 8px; font-size: 0.7rem;">SALMC</button>
+                  <button class="btn btn-secondary btn-xs bucket-btn" data-bucket="SQEOD" style="padding: 4px 8px; font-size: 0.7rem;">SQEOD</button>
+                  <button class="btn btn-secondary btn-xs bucket-btn" data-bucket="SQLMD" style="padding: 4px 8px; font-size: 0.7rem;">SQLMD</button>
+                </div>
+                <p id="bucket-description-text" style="color: var(--color-text-dim); margin-top: 8px; line-height: 1.35; font-style: italic;">
+                  PQLMC: Privileged, Quarterly campaign certified by Line Managers for Connected applications.
+                </p>
+              </div>
+            </div>
+
+            <div class="column-right flex-center">
+              <div class="glass-panel manager-dashboard-mock" style="width: 460px; padding: 16px 20px; display: flex; flex-direction: column; gap: 10px;">
+                <div class="mock-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 8px; margin-bottom: 0;">
+                  <h4 style="font-size: 0.9rem; font-weight: bold; margin: 0; color: #fff;">Saviynt Certifications Manager</h4>
+                  <span class="badge warning" id="campaign-badge" style="font-size: 0.65rem; padding: 2px 6px; border-radius: 4px; background: rgba(255, 183, 0, 0.15); color: var(--color-gold); font-weight: bold; text-transform: uppercase;">Active: PQLMC</span>
+                </div>
+                
+                <div id="campaign-review-list" style="display: flex; flex-direction: column; gap: 8px; min-height: 120px; justify-content: center;">
+                  <!-- Dynamically populated via JS -->
+                  <div class="mock-review-row" style="margin-bottom: 0; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 12px 10px;">
+                    <div class="user-info">
+                      <strong>John Miller</strong>
+                      <span>Marketing Director</span>
+                    </div>
+                    <div class="access-info">
+                      <strong style="color: var(--color-secondary);">Oracle DB Write</strong>
+                      <span class="text-danger" style="color: var(--color-danger); font-weight: bold;">⚠️ Privileged</span>
+                    </div>
+                    <div class="mock-actions">
+                      <button class="mock-btn approve">Approve</button>
+                      <button class="mock-btn deny">Revoke</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sim-alert-console" id="campaign-alert-console" style="margin-top: 5px;">
+                  <span class="status-icon">📋</span>
+                  <span class="status-msg">Campaign PQLMC loaded. Awaiting manager certifications.</span>
+                </div>
+
+                <div class="mock-remediation-tip" style="font-size: 0.65rem; color: var(--color-text-dim); text-align: center; margin-top: 5px; font-style: italic;">
+                  💡 Denied connected access will auto-provision removal immediately.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 11: ROLE MINING - HYBRID APPROACH -->
+        <section class="slide" id="slide-11">
+          <div class="slide-content rm-full-layout">
+            <div class="rm-header-row">
+              <h2 class="slide-header" style="margin-bottom:0;">Role Mining — Hybrid Approach</h2>
+              <div class="rm-status-badge">🚧 Implementation In Progress</div>
+            </div>
+            <p class="slide-intro-text rm-intro">EIC uses a <strong>hybrid approach</strong> — combining top-down business context with bottom-up entitlement analysis. Saviynt's recommended strategy for optimal role engineering.</p>
+
+            <!-- Three Approaches -->
+            <div class="rm-approaches-row">
+              <div class="rm-approach-card rm-topdown">
+                <div class="rm-approach-icon">⬆️</div>
+                <h4>Top-Down</h4>
+                <p>Business-driven. Roles defined by job function, department, location, and job code via HR attributes.</p>
+              </div>
+              <div class="rm-approach-plus">+</div>
+              <div class="rm-approach-card rm-bottomup">
+                <div class="rm-approach-icon">⬇️</div>
+                <h4>Bottom-Up</h4>
+                <p>Data-driven. Mines existing user permissions across applications to discover access patterns.</p>
+              </div>
+              <div class="rm-approach-plus rm-equals">=</div>
+              <div class="rm-approach-card rm-hybrid rm-approach-active">
+                <div class="rm-recommended-tag">✦ Saviynt Recommended</div>
+                <div class="rm-approach-icon">⚡</div>
+                <h4>Hybrid</h4>
+                <p>Leverages bottom-up efficiency gains with top-down restriction of the user base for best results.</p>
+              </div>
+            </div>
+
+            <!-- Benefits Grid -->
+            <div class="rm-benefits-grid">
+              <div class="rm-benefit-item">
+                <span class="rm-benefit-icon">🎯</span>
+                <div class="rm-benefit-text">
+                  <strong>Statistical Algorithms</strong>
+                  <span>Finds optimal roles via ML-driven entitlement clustering</span>
+                </div>
+              </div>
+              <div class="rm-benefit-item">
+                <span class="rm-benefit-icon">📊</span>
+                <div class="rm-benefit-text">
+                  <strong>Usage-Based Mining</strong>
+                  <span>Excludes legacy unused access — mines only active entitlements</span>
+                </div>
+              </div>
+              <div class="rm-benefit-item">
+                <span class="rm-benefit-icon">🔗</span>
+                <div class="rm-benefit-text">
+                  <strong>Entitlement Hierarchy</strong>
+                  <span>SAP Tcode → SAP Role → Business/Enterprise Role (multi-level)</span>
+                </div>
+              </div>
+              <div class="rm-benefit-item">
+                <span class="rm-benefit-icon">⚠️</span>
+                <div class="rm-benefit-text">
+                  <strong>SOD-Aware Mining</strong>
+                  <span>Algorithm prevents inherent SOD risk within any mined role</span>
+                </div>
+              </div>
+              <div class="rm-benefit-item">
+                <span class="rm-benefit-icon">🔬</span>
+                <div class="rm-benefit-text">
+                  <strong>Workbench Simulation</strong>
+                  <span>Save results, slice-dice in simulation mode before publishing</span>
+                </div>
+              </div>
+              <div class="rm-benefit-item">
+                <span class="rm-benefit-icon">🏢</span>
+                <div class="rm-benefit-text">
+                  <strong>Business Function Mapping</strong>
+                  <span>Align roles to business processes for functional role definition</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 12: GOVERNANCE DASHBOARDS -->
+        <section class="slide" id="slide-12">
+          <div class="slide-content gd-layout">
+
+            <!-- Title Row -->
+            <div class="gd-title-row">
+              <h2 class="slide-header" style="margin:0;">Governance &amp; Audit Dashboards</h2>
+              <span class="gd-live-badge">⬤ LIVE</span>
+            </div>
+
+            <!-- KPI Strip -->
+            <div class="gd-kpi-strip">
+              <div class="gd-kpi-card gd-kpi-green">
+                <span class="gd-kpi-label">Active SOD Violations</span>
+                <span class="gd-kpi-number count-up" data-target="0" data-suffix="">0</span>
+                <div class="gd-kpi-bar" style="--bar-w:0%;--bar-color:#39e75f;"></div>
+                <span class="gd-kpi-sub">✔ Clean State</span>
+              </div>
+              <div class="gd-kpi-card gd-kpi-cyan">
+                <span class="gd-kpi-label">UAR Completion</span>
+                <span class="gd-kpi-number count-up" data-target="99" data-suffix="%">0</span>
+                <div class="gd-kpi-bar" style="--bar-w:99%;--bar-color:#00f0ff;"></div>
+                <span class="gd-kpi-sub">↑ 4% vs last cycle</span>
+              </div>
+              <div class="gd-kpi-card gd-kpi-purple">
+                <span class="gd-kpi-label">Orphaned Accounts</span>
+                <span class="gd-kpi-number count-up" data-target="142" data-suffix="">0</span>
+                <div class="gd-kpi-bar" style="--bar-w:72%;--bar-color:#8a2be2;"></div>
+                <span class="gd-kpi-sub">Auto-revoked</span>
+              </div>
+              <div class="gd-kpi-card gd-kpi-gold">
+                <span class="gd-kpi-label">Provisioning Success</span>
+                <span class="gd-kpi-number count-up" data-target="98" data-suffix="%">0</span>
+                <div class="gd-kpi-bar" style="--bar-w:98%;--bar-color:#ffb700;"></div>
+                <span class="gd-kpi-sub">↑ Automated pipeline</span>
+              </div>
+              <div class="gd-kpi-card gd-kpi-pink">
+                <span class="gd-kpi-label">OOB Changes Detected</span>
+                <span class="gd-kpi-number count-up" data-target="37" data-suffix="">0</span>
+                <div class="gd-kpi-bar" style="--bar-w:37%;--bar-color:#ff007f;"></div>
+                <span class="gd-kpi-sub">All remediated</span>
+              </div>
+            </div>
+
+            <!-- Middle Row -->
+            <div class="gd-mid-row">
+
+              <!-- Bar Chart: UAR campaigns per month -->
+              <div class="gd-panel gd-chart-panel">
+                <div class="gd-panel-header">
+                  <span class="gd-panel-title">📊 UAR Campaign Completion — Last 6 Months</span>
+                </div>
+                <div class="gd-bar-chart">
+                  <div class="gd-bar-group">
+                    <div class="gd-bar" style="--h:68%;background:rgba(138,43,226,0.7);"></div>
+                    <span class="gd-bar-label">Jan</span>
+                    <span class="gd-bar-val">68%</span>
+                  </div>
+                  <div class="gd-bar-group">
+                    <div class="gd-bar" style="--h:75%;background:rgba(0,180,255,0.7);"></div>
+                    <span class="gd-bar-label">Feb</span>
+                    <span class="gd-bar-val">75%</span>
+                  </div>
+                  <div class="gd-bar-group">
+                    <div class="gd-bar" style="--h:82%;background:rgba(138,43,226,0.7);"></div>
+                    <span class="gd-bar-label">Mar</span>
+                    <span class="gd-bar-val">82%</span>
+                  </div>
+                  <div class="gd-bar-group">
+                    <div class="gd-bar" style="--h:88%;background:rgba(0,180,255,0.7);"></div>
+                    <span class="gd-bar-label">Apr</span>
+                    <span class="gd-bar-val">88%</span>
+                  </div>
+                  <div class="gd-bar-group">
+                    <div class="gd-bar" style="--h:93%;background:rgba(138,43,226,0.7);"></div>
+                    <span class="gd-bar-label">May</span>
+                    <span class="gd-bar-val">93%</span>
+                  </div>
+                  <div class="gd-bar-group">
+                    <div class="gd-bar gd-bar-active" style="--h:99%;background:linear-gradient(0deg,#8a2be2,#00f0ff);"></div>
+                    <span class="gd-bar-label">Jun</span>
+                    <span class="gd-bar-val gd-bar-val-active">99%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Compliance Frameworks -->
+              <div class="gd-panel gd-compliance-panel">
+                <div class="gd-panel-header">
+                  <span class="gd-panel-title">🛡️ Audit Framework Status</span>
+                </div>
+                <div class="gd-compliance-list">
+                  <div class="gd-compliance-row gd-c-pass">
+                    <span class="gd-c-name">SOX</span>
+                    <div class="gd-c-bar-wrap"><div class="gd-c-bar" style="width:97%;"></div></div>
+                    <span class="gd-c-pct">97%</span>
+                    <span class="gd-c-badge pass">PASS</span>
+                  </div>
+                  <div class="gd-compliance-row gd-c-pass">
+                    <span class="gd-c-name">ISO 27001</span>
+                    <div class="gd-c-bar-wrap"><div class="gd-c-bar" style="width:94%;"></div></div>
+                    <span class="gd-c-pct">94%</span>
+                    <span class="gd-c-badge pass">PASS</span>
+                  </div>
+                  <div class="gd-compliance-row gd-c-pass">
+                    <span class="gd-c-name">GDPR</span>
+                    <div class="gd-c-bar-wrap"><div class="gd-c-bar" style="width:100%;"></div></div>
+                    <span class="gd-c-pct">100%</span>
+                    <span class="gd-c-badge pass">PASS</span>
+                  </div>
+                  <div class="gd-compliance-row gd-c-review">
+                    <span class="gd-c-name">HIPAA</span>
+                    <div class="gd-c-bar-wrap"><div class="gd-c-bar gd-c-bar-warn" style="width:88%;"></div></div>
+                    <span class="gd-c-pct">88%</span>
+                    <span class="gd-c-badge review">REVIEW</span>
+                  </div>
+                  <div class="gd-compliance-row gd-c-pass">
+                    <span class="gd-c-name">Cyber Essentials</span>
+                    <div class="gd-c-bar-wrap"><div class="gd-c-bar" style="width:100%;"></div></div>
+                    <span class="gd-c-pct">100%</span>
+                    <span class="gd-c-badge pass">PASS</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Alerts Feed -->
+              <div class="gd-panel gd-alerts-panel">
+                <div class="gd-panel-header">
+                  <span class="gd-panel-title">🔔 Recent Audit Events</span>
+                </div>
+                <div class="gd-alert-feed">
+                  <div class="gd-alert-item gd-alert-ok">
+                    <span class="gd-alert-dot"></span>
+                    <div class="gd-alert-body">
+                      <span class="gd-alert-msg">PQLMC Campaign closed — 99.2% complete</span>
+                      <span class="gd-alert-time">2 hrs ago</span>
+                    </div>
+                  </div>
+                  <div class="gd-alert-item gd-alert-ok">
+                    <span class="gd-alert-dot"></span>
+                    <div class="gd-alert-body">
+                      <span class="gd-alert-msg">37 OOB changes detected &amp; remediated</span>
+                      <span class="gd-alert-time">6 hrs ago</span>
+                    </div>
+                  </div>
+                  <div class="gd-alert-item gd-alert-warn">
+                    <span class="gd-alert-dot"></span>
+                    <div class="gd-alert-body">
+                      <span class="gd-alert-msg">HIPAA control gap — review assigned</span>
+                      <span class="gd-alert-time">1 day ago</span>
+                    </div>
+                  </div>
+                  <div class="gd-alert-item gd-alert-ok">
+                    <span class="gd-alert-dot"></span>
+                    <div class="gd-alert-body">
+                      <span class="gd-alert-msg">142 orphaned accounts auto-revoked</span>
+                      <span class="gd-alert-time">2 days ago</span>
+                    </div>
+                  </div>
+                  <div class="gd-alert-item gd-alert-ok">
+                    <span class="gd-alert-dot"></span>
+                    <div class="gd-alert-body">
+                      <span class="gd-alert-msg">SOX audit report exported — 0 findings</span>
+                      <span class="gd-alert-time">3 days ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /mid-row -->
+
+            <!-- Audit Report Table -->
+            <div class="gd-panel gd-table-panel">
+              <div class="gd-panel-header">
+                <span class="gd-panel-title">📋 Latest Audit Report Export</span>
+                <span class="gd-export-btn">⬇ Export CSV</span>
+              </div>
+              <table class="gd-audit-table">
+                <thead>
+                  <tr>
+                    <th>Control</th>
+                    <th>Framework</th>
+                    <th>Owner</th>
+                    <th>Last Tested</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Privileged Access Review</td>
+                    <td>SOX / ISO</td>
+                    <td>IAM Team</td>
+                    <td>Jun 10, 2025</td>
+                    <td><span class="gd-tbl-badge pass">PASS</span></td>
+                  </tr>
+                  <tr>
+                    <td>Terminated User Offboarding</td>
+                    <td>GDPR / SOX</td>
+                    <td>HR + IAM</td>
+                    <td>Jun 09, 2025</td>
+                    <td><span class="gd-tbl-badge pass">PASS</span></td>
+                  </tr>
+                  <tr>
+                    <td>SOD Conflict Detection</td>
+                    <td>SOX</td>
+                    <td>Security</td>
+                    <td>Jun 08, 2025</td>
+                    <td><span class="gd-tbl-badge pass">0 Violations</span></td>
+                  </tr>
+                  <tr>
+                    <td>HIPAA Data Access Control</td>
+                    <td>HIPAA</td>
+                    <td>Compliance</td>
+                    <td>Jun 07, 2025</td>
+                    <td><span class="gd-tbl-badge warn">In Review</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SLIDE 13: VISION & ROADMAP -->
+        <section class="slide" id="slide-13">
+          <div class="slide-content grid-2">
+            <div class="column-left">
+              <h2 class="slide-header">Saviynt Vision &amp; Roadmap</h2>
+              <p class="slide-intro-text">Moving beyond traditional, static access reviews toward adaptive,
+                intelligence-led governance.</p>
+
+              <div class="roadmap-stages">
+                <div class="roadmap-card active">
+                  <div class="num-badge">01</div>
+                  <h3>Identity Intelligence</h3>
+                  <p>Uses AI/ML peer group analytics to suggest access reviews and identify toxic privilege anomalies
+                    before auditors do.</p>
+                </div>
+                <div class="roadmap-card">
+                  <div class="num-badge">02</div>
+                  <h3>Non-Human Identities (NHI)</h3>
+                  <p>Extends governance to APIs, service accounts, and bots—now representing over 70% of enterprise
+                    accounts.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="column-right flex-center">
+              <div class="glass-visual tech-stack-visual">
+                <div class="core-hub pulse-border">
+                  <img src="assets/saviynt_icon.png" alt="Saviynt" class="hub-logo">
+                  <span class="hub-text">Saviynt Core</span>
+                </div>
+                <div class="orbiting-node node-1">Intelligence AI</div>
+                <div class="orbiting-node node-2">API Keys</div>
+                <div class="orbiting-node node-3">Human Users</div>
+                <div class="orbiting-node node-4">RPA Bots</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SLIDE 14: SAVIYNT PLATFORM & SUPPORT PACKAGES -->
+        <section class="slide" id="slide-14">
+          <div class="slide-content pkg-full-layout">
+            
+            <div class="pkg-title-row">
+              <h2 class="slide-header" style="margin-bottom:0;">Saviynt Platform Tier &amp; Support Package</h2>
+              <span class="pkg-current-badge">✦ DIAMOND PRO ACTIVE</span>
+            </div>
+            
+            <p class="slide-intro-text" style="margin-bottom: 6px;">Our organization leverages Saviynt's enterprise platform tier paired with their highest level of customer support.</p>
+
+            <div class="pkg-body">
+              <!-- Left Side: Platform Tier & SLA info -->
+              <div class="pkg-left">
+                <div class="pkg-explain-row">
+                  <!-- Platform Card -->
+                  <div class="pkg-explain-card pkg-platform">
+                    <span class="pkg-explain-icon">🏢</span>
+                    <div>
+                      <strong>Platform Tier: Pro</strong>
+                      <span>Enterprise-grade IGA solution with unlimited applications, high-throughput workflows, and unlimited managed human/non-human identities.</span>
+                    </div>
+                  </div>
+                  <!-- Support Card -->
+                  <div class="pkg-explain-card pkg-support">
+                    <span class="pkg-explain-icon">💎</span>
+                    <div>
+                      <strong>Success Program: Diamond</strong>
+                      <span>Saviynt's premium white-glove service. Includes a dedicated Customer Success Manager, Support Account Manager, and Executive Sponsor.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SLA Grid -->
+                <div class="pkg-sla-grid">
+                  <div class="pkg-sla-item">
+                    <span class="pkg-sla-val">30m</span>
+                    <span class="pkg-sla-label">Sev 1 SLA</span>
+                  </div>
+                  <div class="pkg-sla-item">
+                    <span class="pkg-sla-val">2h</span>
+                    <span class="pkg-sla-label">Sev 2 SLA</span>
+                  </div>
+                  <div class="pkg-sla-item">
+                    <span class="pkg-sla-val">24/7</span>
+                    <span class="pkg-sla-label">Tech Support</span>
+                  </div>
+                  <div class="pkg-sla-item">
+                    <span class="pkg-sla-val">20</span>
+                    <span class="pkg-sla-label">Auth Contacts</span>
+                  </div>
+                  <div class="pkg-sla-item">
+                    <span class="pkg-sla-val">20%</span>
+                    <span class="pkg-sla-label">Trng Discount</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Side: Comparison Table -->
+              <div class="pkg-right">
+                <table class="pkg-table">
+                  <thead>
+                    <tr>
+                      <th>Feature / Benefit</th>
+                      <th>Standard</th>
+                      <th>Gold</th>
+                      <th class="pkg-th-active">Diamond</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Severity 1 SLA Response</td>
+                      <td>2 Hours</td>
+                      <td>1 Hour</td>
+                      <td class="pkg-td-active">30 Minutes</td>
+                    </tr>
+                    <tr>
+                      <td>Severity 2 SLA Response</td>
+                      <td>4 Hours</td>
+                      <td>2 Hours</td>
+                      <td class="pkg-td-active">2 Hours</td>
+                    </tr>
+                    <tr>
+                      <td>Dedicated Customer Success (CSM)</td>
+                      <td>Pooled</td>
+                      <td>Shared</td>
+                      <td class="pkg-td-active">Dedicated</td>
+                    </tr>
+                    <tr>
+                      <td>Support Account Manager (SAM)</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td class="pkg-td-active">✔ Included</td>
+                    </tr>
+                    <tr>
+                      <td>Dedicated Executive Sponsor</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td class="pkg-td-active">✔ Included</td>
+                    </tr>
+                    <tr>
+                      <td>Private Slack Channel with SMEs</td>
+                      <td>❌</td>
+                      <td>❌</td>
+                      <td class="pkg-td-active">✔ Included</td>
+                    </tr>
+                    <tr>
+                      <td>Authorized Support Contacts</td>
+                      <td>4 Contacts</td>
+                      <td>8 Contacts</td>
+                      <td class="pkg-td-active">20 Contacts</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+
+      <!-- CONTROLS PANEL OVERLAYS -->
+      <div id="controls-bar">
+        <div class="controls-left">
+          <button class="btn btn-secondary btn-sm" id="btn-toggle-notes">📝 Notes</button>
+          <button class="btn btn-secondary btn-sm" id="btn-toggle-sound">🔊 Sound</button>
+        </div>
+
+        <div class="controls-center">
+          <button class="control-btn" id="btn-prev-slide" title="Previous Slide">◀</button>
+          <span id="slide-indicator">1 / 14</span>
+          <button class="control-btn" id="btn-next-slide" title="Next Slide">▶</button>
+        </div>
+
+        <div class="controls-right">
+          <span class="time-elapsed" id="timer-display">00:00</span>
+        </div>
+      </div>
+
+      <!-- PROGRESS BAR FOOTER -->
+      <div id="deck-progress-bar">
+        <div class="fill" id="deck-progress-fill" style="width: 7%"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LEFT SLIDE NAVIGATION SIDEBAR TOGGLE -->
+  <button id="nav-sidebar-toggle" title="Slide Navigator">☰</button>
+
+  <!-- LEFT SLIDE NAVIGATION SIDEBAR -->
+  <div id="slide-nav-sidebar">
+    <div class="nav-sidebar-header">
+      <span class="nav-sidebar-title">Slides</span>
+      <button id="nav-sidebar-close">✖</button>
+    </div>
+    <div class="nav-sidebar-hint">Click to jump · Drag to reorder</div>
+    <ul id="nav-slide-list">
+      <!-- Populated by JS -->
+    </ul>
+  </div>
+
+  <!-- SPEAKER NOTES DRAWER PANEL -->
+  <aside id="speaker-notes-drawer">
+    <div class="notes-header">
+      <h3>📋 Speaker Notes</h3>
+      <button id="btn-close-notes" class="close-btn">✖</button>
+    </div>
+    <div class="notes-content" id="speaker-notes-content">
+      <!-- Injected by JS -->
+    </div>
+  </aside>
+
+  <!-- Presentation Control Scripts -->
+  <script src="presentation.js"></script>
+</body>
+
+</html>
